@@ -1,0 +1,50 @@
+{
+  "name": "web3-systems-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Code-first Web3 apprenticeship: cryptography, state machines, Solidity, DeFi and adversarial tests.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:core": "vitest run tests/core",
+    "test:contracts": "vitest run tests/contracts",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "contracts:compile": "node --import tsx scripts/compile-contracts.ts",
+    "contracts:demo": "node --import tsx scripts/contract-demo.ts",
+    "demo": "node --import tsx scripts/demo.ts",
+    "check": "pnpm typecheck && pnpm test && pnpm build && pnpm demo && pnpm contracts:demo",
+    "format": "prettier --write src tests scripts *.ts *.json *.yaml index.html .github/workflows/*.yml",
+    "format:check": "prettier --check src tests scripts *.ts *.json *.yaml index.html .github/workflows/*.yml"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.6.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "viem": "2.57.17"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "@vitest/coverage-v8": "5.1.0",
+    "fast-check": "4.10.2",
+    "hardhat": "3.21.2",
+    "prettier": "3.9.10",
+    "solc": "0.8.38",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.7",
+    "vitest": "5.1.0"
+  },
+  "packageManager": "pnpm@11.25.0"
+}
